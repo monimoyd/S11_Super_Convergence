@@ -1,24 +1,29 @@
 # S11_Super_Convergence
 Super Convergence Using One Cycle LR policy on Custom Resnet and Ciphar10 dataset
 
-In this assignment, custom Resnet architecture is used to train CIPHAR-10 dataset and used Data Augmmentation. Developed APIs so as to load data, train, test and show results.
+In this assignment, CIPHAR-10 dataset is trained using Custom ResNet architecture, Data Augmentation(Padding, Cutout,Random Crop, Horizontal Flip) and One Cycle Learning Rate policy and achieved 91.05% test accuracy in 24 epochs. Developed APIs so as to load data, train, test and show results.
 
 Custom ResNet architecture is as below:
 Layer1 -
     X = Conv 3x3 (s1, p1) >> MaxPool2D >> BN >> RELU [128k]
     R1 = ResBlock( (Conv-BN-ReLU-Conv-BN-ReLU))(X) [128k] 
     Add(X, R1)
+    
 Layer 2 -
     Conv 3x3 [256k]
     MaxPooling2D
     BN
     ReLU
+    
 Layer 3 -
     X = Conv 3x3 (s1, p1) >> MaxPool2D >> BN >> RELU [512k]
     R2 = ResBlock( (Conv-BN-ReLU-Conv-BN-ReLU))(X) [512k]
     Add(X, R2)
+    
 MaxPooling with Kernel Size 4
+
 FC Layer 
+
 SoftMax
 
 Following changes are done:
