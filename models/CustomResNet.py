@@ -63,7 +63,6 @@ class CustomResNet(nn.Module):
         self.layer2 = TransitionBlock(128, 256, 1, p)
         self.layer3 =  ResBlock(256,512, 1, p)
         self.max_pool = nn.MaxPool2d(4, 4)
-        #self.max_pool = nn.AdaptiveAvgPool2d(1)
         self.linear = nn.Linear(512, num_classes)
 
     def forward(self, x):
